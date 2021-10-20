@@ -3,7 +3,7 @@ import millify from 'millify'
 import { Link } from 'react-router-dom'
 import { Card, Row, Col, Input } from 'antd'
 import { useGetCryptosQuery } from '../services/cryptoApi'
-
+import Loader from './Loader'
 
 const Cryptocurrencies = ({simplified}) => {
     // when we are on home page it will render top 10 coins else it will render all
@@ -20,7 +20,7 @@ const Cryptocurrencies = ({simplified}) => {
         setcryptos(filteredData)
     },[cryptosList, searchTerm])
 
-    if(isFetching) return 'Loading...'
+    if(isFetching) return <Loader />
     return (
         <>
         {!simplified && (

@@ -4,6 +4,7 @@ import { Typography, Row, Col, Statistic } from 'antd'
 import { Link } from 'react-router-dom'
 import {Cryptocurrencies, News} from '../components'
 import { useGetCryptosQuery } from '../services/cryptoApi'
+import Loader from './Loader'
 // As Typography.Title is going to be repeated so many time, i destructued it, so just writing Title will work
 const {Title} = Typography
 
@@ -12,7 +13,7 @@ const Homepage = () => {
     console.log(data)
     const globalStats = data?.data?.stats;
 
-    if(isFetching) return 'Loading....'
+    if (isFetching) return <Loader />;
     return (
         <>
         <Title level={2} className='heading'>
