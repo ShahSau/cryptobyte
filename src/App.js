@@ -2,8 +2,10 @@ import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
 
-import { Navbar, Homepage, Exchanges, Cryptocurrencies, CryptoDetails, News } from './components'
+import { Navbar, Homepage, Exchanges, Cryptocurrencies, Term, CryptoDetails, News } from './components'
 import './App.css'
+
+
 
 const App = () => {
     return (
@@ -30,6 +32,9 @@ const App = () => {
                             <Route exact path='/news'>
                                 <News />
                             </Route> 
+                            <Route exact path='/terms'>
+                                <Term />
+                            </Route>
                         </Switch>
                     </div>
                 </Layout>
@@ -42,6 +47,7 @@ const App = () => {
                 <Space>
                     <Link to='/'>Home</Link>
                     <Link to='/exchanges'>Exchanges</Link>
+                    <Link to='/terms'>Cryptocurrency Terms</Link>
                     <Link to='/news'>News</Link>
                 </Space>
             </div>
