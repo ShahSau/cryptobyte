@@ -8,6 +8,7 @@ import {
   QuestionOutlined,
   FundOutlined,
   MenuOutlined,
+  DollarCircleOutlined,
 } from "@ant-design/icons";
 
 import icon from "../images/logo.png";
@@ -65,9 +66,15 @@ const Navbar = () => {
             <Link to="/terminology">Terminology</Link>
           </Menu.Item>
 
+          
+          <Menu.Item icon={<DollarCircleOutlined />}>
+            <Link to="/mining">Mining</Link>
+          </Menu.Item>
+
           <Menu.Item icon={<BulbOutlined />}>
             <Link to="/news">News</Link>
           </Menu.Item>
+
         </Menu>
       )}
     </div>

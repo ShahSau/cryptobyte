@@ -10,6 +10,7 @@ import {
   Term,
   CryptoDetails,
   News,
+  Mining,
 } from "./components";
 import "./App.css";
 
@@ -41,6 +42,9 @@ const App = () => {
               <Route exact path="/terminology">
                 <Term />
               </Route>
+              <Route exact path="/mining">
+                <Mining />
+              </Route>
             </Switch>
           </div>
         </Layout>
@@ -57,7 +61,9 @@ const App = () => {
             <Link to="/">Home</Link>
             <Link to="/exchanges">Exchanges</Link>
             <Link to="/terms">Terminology</Link>
+            <Link to="/mining">Mining</Link>
             <Link to="/news">News</Link>
+
           </Space>
         </div>
       </div>
