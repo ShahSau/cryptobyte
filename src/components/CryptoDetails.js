@@ -96,6 +96,18 @@ const CryptoDetails = () => {
           ))}
         </Col>
       </Col>
+      <Col>
+      <Row className="coin-desc">
+          <Title level={3} className="coin-details-heading">Events thats are happing on {cryptoDetails.name}</Title>
+          {HTMLReactParser(cryptoDetails.description)}
+        </Row>
+      </Col>
+      <Col>
+      <Row className="coin-desc">
+          <Title level={3} className="coin-details-heading">what is twitter saying {cryptoDetails.name}</Title>
+          {HTMLReactParser(cryptoDetails.description)}
+        </Row>
+      </Col>
     </Col>
   );
 }

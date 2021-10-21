@@ -9,7 +9,7 @@ const {Option} = Select
 
 const Term= ()=> {
     const { data } = useGetCryptoTagsQuery();
-    console.log(data[0])
+    console.log(data)
     return (
         <div>
             Tags
