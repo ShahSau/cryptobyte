@@ -51,7 +51,7 @@ const Navbar = () => {
                     </Menu.Item>
 
                     <Menu.Item icon={<QuestionOutlined />}>
-                        <Link to='/terms'>Cryptocurrency Terms</Link>
+                        <Link to='/terminology'>Terminology</Link>
                     </Menu.Item>
 
                     <Menu.Item icon={<BulbOutlined />}>

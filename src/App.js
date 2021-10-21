@@ -32,7 +32,7 @@ const App = () => {
                             <Route exact path='/news'>
                                 <News />
                             </Route> 
-                            <Route exact path='/terms'>
+                            <Route exact path='/terminology'>
                                 <Term />
                             </Route>
                         </Switch>
@@ -47,7 +47,7 @@ const App = () => {
                 <Space>
                     <Link to='/'>Home</Link>
                     <Link to='/exchanges'>Exchanges</Link>
-                    <Link to='/terms'>Cryptocurrency Terms</Link>
+                    <Link to='/terms'>Terminology</Link>
                     <Link to='/news'>News</Link>
                 </Space>
             </div>

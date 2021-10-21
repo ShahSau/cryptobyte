@@ -300,7 +300,9 @@ a:hover{
 .news-title{
 width: 70%;
 }
-
+.item-title{
+    width: 90%;
+    }
 .news-image-container .img{
     width:100px;
     height:100px;
