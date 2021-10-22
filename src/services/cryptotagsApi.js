@@ -16,7 +16,13 @@ export const cryptoTagApi = createApi({
     getCryptoTags: builder.query({
       query: () => createRequest("/tags"),
     }),
+    getCryptoEvents: builder.query({
+      query: (iid) =>
+        createRequest(
+          `/coins/${iid}/events`
+        ),
+    }),
   }),
 });
 
-export const { useGetCryptoTagsQuery } = cryptoTagApi;
+export const { useGetCryptoTagsQuery, useGetCryptoEventsQuery } = cryptoTagApi;

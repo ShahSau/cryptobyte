@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import HTMLReactParser from "html-react-parser";
 import { useParams } from "react-router";
 import millify from "millify";
-import { Col, Row, Typography, Select } from "antd";
+import { Card, Col, Row, Typography, Select } from "antd";
 import {
   MoneyCollectOutlined,
   DollarCircleOutlined,
@@ -18,6 +18,7 @@ import {
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
 } from "../services/cryptoApi";
+import { useGetCryptoEventsQuery } from "../services/cryptotagsApi"
 import LineChart from "./LineChart";
 import Loader from "./Loader";
 const { Title, Text } = Typography;
@@ -30,9 +31,30 @@ const CryptoDetails = () => {
     coinId,
     timePeriod,
   });
+  
+  
+  //////
+  const [id, setId] = useState("ada-cardano")
+  const {data:events} = useGetCryptoEventsQuery(id)
+  console.log({events})
   const cryptoDetails = data?.data?.coin;
+  const newName = cryptoDetails?.slug.split("-")
+  console.log({newName})
+  useEffect(() => {
+    if(newName){
+      setId([newName[1], newName[0]].join("-"))
+      console.log(id)
+
+      /////use axios
+    }
+  }, [id]);
+
+  /////
+  
+  
 
   if (isFetching) return <Loader />;
+
 
   const time = ["24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 
@@ -91,7 +113,12 @@ const CryptoDetails = () => {
       icon: <ExclamationCircleOutlined />,
     },
   ];
-
+  // const newName = cryptoDetails?.slug.split("-")
+  // console.log({newName})
+  // const iid = [newName[1], newName[0]].join("-")
+  // console.log({iid})
+  // const {data:events} = useGetCryptoEventsQuery(iid)
+  // console.log({events})
   return (
     <Col className="coin-detail-container">
       <Col className="coin-heading-container">
@@ -183,14 +210,22 @@ const CryptoDetails = () => {
           ))}
         </Col>
       </Col>
-      <Col>
+      {events && <Col>
         <Row className="coin-desc">
           <Title level={3} className="coin-details-heading">
-            Events thats are happing on {cryptoDetails.name}
+            Events thats are happing on {events.map((news, i) => (
+              <Card hoverable className="news-card">
+                <Title>
+                  {news.name}
+                </Title>
+
+              </Card>
+            ))}
+            
           </Title>
           {HTMLReactParser(cryptoDetails.description)}
         </Row>
-      </Col>
+      </Col>}
       <Col>
         <Row className="coin-desc">
           <Title level={3} className="coin-details-heading">
@@ -200,6 +235,7 @@ const CryptoDetails = () => {
         </Row>
       </Col>
     </Col>
+
   );
 };
 
