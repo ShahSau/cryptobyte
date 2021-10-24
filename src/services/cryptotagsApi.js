@@ -17,10 +17,7 @@ export const cryptoTagApi = createApi({
       query: () => createRequest("/tags"),
     }),
     getCryptoEvents: builder.query({
-      query: (iid) =>
-        createRequest(
-          `/coins/${iid}/events`
-        ),
+      query: (iid) => createRequest(`/coins/${iid}/events`),
     }),
   }),
 });

@@ -63,7 +63,6 @@ const App = () => {
             <Link to="/terms">Terminology</Link>
             <Link to="/mining">Mining</Link>
             <Link to="/news">News</Link>
-
           </Space>
         </div>
       </div>
